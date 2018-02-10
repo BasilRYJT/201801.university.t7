@@ -1,0 +1,135 @@
+\documentclass[a4paper, fleqn]{article}
+
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Homework I \\ Advanced Topics in Optimization}
+\author{Basil R. Yap}
+\date{2018 January 25}
+\maketitle
+
+\section{Question 1}
+
+\textbf{system description: }$1||L_{max}$\\
+$L_{max}$ is the maximum lateness of the system.
+\begin{center}
+\begin{tabular}{| l | c | c | c | c |}
+\hline
+jobs & 1 & 2 & 3 & 4 \\
+\hline
+$p_j$ & 5 & 4 & 3 & 6 \\
+$d_j$ & 3 & 5 & 11 & 12 \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Part 1a}
+
+\textbf{Find the optimal sequence and compute the value of the objective.}
+\begin{itemize}
+\item Optimal schedule, $S^*$: 1,2,3,4
+\item Optimal objective value, $z^*$: 6
+\end{itemize}
+
+
+\subsection{Part 1b}
+
+\textbf{Give an argument for positioning jobs with earlier due dates more towards the beginning of the sequence and jobs with later due dates more towards the end of the sequence.}\\
+The objective $L_{max}$ measures the completion time of a job relative to its due date and takes the largest value of all jobs.\\
+Assuming that all jobs have the same processing times, but different due dates.\\
+If a job has an earlier due date, placing the job later in the schedule would increase its lateness by a larger magnitude than that of job with a later due date in the same position.\\
+Therefore, in order to reduce the largest lateness, jobs with earlier due dates tend to be placed near the starting of the sequence.
+
+\pagebreak
+
+\subsection{Part 1c}
+
+\textbf{Give an argument for positioning jobs with smaller processing time more towards the beginning of the sequence and jobs with larger processing time more towards the end of the sequence.}\\
+Assuming that all jobs have the same due date, but different processing times.\\ 
+Considering only two adjacent jobs within a given schedule.
+If the job with the shorter processing time is placed after its counterpart in the schedule, the total lateness of the two jobs in this schedule would be higher than that of the schedule where the job with the shorter processing time is placed before its counterpart.\\
+Therefore, in order to reduce the largest lateness, jobs with shorter processing times tend to be placed near the starting of the sequence.  
+
+\subsection{Part 1d}
+
+\textbf{Determine which one of the following four rules is the most suitable generic rule for the problem:}
+\begin{enumerate}[label=(\alph{*})]
+\item sequence the jobs in increasing order of $d_j + p_j$
+\item sequence the jobs in increasing order of $d_jp_j$
+\item sequence the jobs in increasing order of $d_j$
+\item sequence the jobs in increasing order of $p_j$
+\end{enumerate}
+
+Option \textbf{b}.
+
+\section{Question 2}
+\textbf{Show that $1|s_{jk}|C_{max}$ is equivalent to the following
+Traveling Salesman Problem: A traveling salesman starts out
+from city 0, visits cities $1,\cdots,n$ and returns to city 0, while minimizing the total distance traveled. The distance from city 0 to city $k$ is $s_{0k}$; the distance from city $j$ to city $k$ is $s_{jk}$ and the distance from city $j$ to city 0 is $s_{j0}$.}\\
+$s_{jk}$ is the sequence dependent setup time incurred when moving between job j and job k.\\
+Consider the following equivalence:\begin{itemize}
+\item traveling salesman: single machine
+\item city $k$: job $k$
+\item distance between city $j$ and city $k$: setup time incurred between machine $j$ and machine $k$, $s_{jk}$
+\item time to complete Hamiltonian Circuit: completion time of last job, $C_{max}$ *
+\end{itemize}
+*    For schedule of finite jobs $k$, where $k\in\{1,\cdots,n\}$. The circuit can be completed by considering job $n+1$, where $s_{k,n+1}=s_{n+1,k}=0\ \forall k\in\{1,\cdots,n\}$ and job $n+1$ will be placed at $S_{(0)}$ and $S_{n+1}$ for all schedules.\\
+With these definitions, a Traveling Salesman Problem can be formulated by modeling the cities as a $n+1$ complete directed graph $G=(V,E)$: \begin{itemize}
+\item $V=\{1,\cdots,n+1\}$
+\item $E=\{s_{jk}|\forall j,k\in V\}$
+\end{itemize}
+The processing time at each node can be considered to be negligible. As the traveling salesman would have to travel through every node in the graph, the processing time at each node will have no effect on the overall completion time of the circuit. Therefore, this problem can be solved as a TSP.\\
+There will always be an Optimal Solution where city $n+1$ is the first and last city in the circuit, as the cost to travel to and from city $n+1$ is zero.
+
+
+\section{Question 3}
+\textbf{Show that $1|p_j=1|\sum w_jT_j$ can be modeled as an assignment problem.}\\
+Given a list of $n$ jobs where $p_j=1\ \forall j\in\{1,\cdots,n\}$\\
+All schedules consisting of a single machine can be broken up into $n$ discrete blocks.\\
+The problem can then be formulated as an assignment problem, where each job is assigned a time block based on the importance of the job. The importance/preference of the job $j$ for time block $k$ can be denoted by $z_{k,j}=-w_kT_{k,j}$ where $T_{k,j}$ is the tardiness of job $k$ at time block $j$. *\\
+*    Negative value is taken as preference as $w_jT_{j,k}$ can only take non-negative values and larger values of $z_{k,j}$ are preferred.
+
+\section{Question 4}
+\textbf{Given $w_j\leq0,\forall\in\{1,2,\cdots,n\}$, we want to minimize the objective function}
+$$\gamma=\sum_{j=1}^n w_jU_j(C_j)$$\\
+\textbf{where $U_j(C_j)=1$ if $C_j>d_j$, and 0 otherwise. Prove that this objective function $\gamma$ is a regular performance measure. What if some $w_k<0$?}\\
+Consider two schedules, $S$ and $S'$, where $C_i=C_i'\ \forall i\in\{1,\cdots,n\}/j$ and $C_j< C_j'$\\
+$\gamma$ is regular if for all $j\in\{1,\cdots,n\}$, $\gamma\leq\gamma'$\\
+Considering that:
+$U_j(C_j)=\left\{\begin{array}{ll}1&\text{If }C_j>d_j\\0&\text{Otherwise}\end{array}\right.$\\
+If $U_j(C_j)=1$, $U_j(C_j')=1\ \forall C_j'$ such that $C_j'>C_j$\\
+If $U_j(C_j)=0$, 
+$U_j(C_j')=\left\{\begin{array}{ll}1&\text{If }C_j'>d_j\\0&\text{Otherwise}\end{array}\right.$\\
+Therefore, $\gamma$ is non-decreasing and a regular performance measure.\\
+If there are $j$ such that $w_j<0$, $\gamma$ is no longer non-decreasing as there exists a $w_jU_j(C_j)>w_jU_j(C_j')$ when $U_j(C_j)=0$ and $U_j(C_j')=1$. 
+
+\section{Question 5}
+\textbf{Suppose $\gamma_1$ and $\gamma_2$ are regular performance measures. Which of the following is regular? If you say a measure is regular, prove it. If you say otherwise, give an example to show that it is not.}
+
+\subsection{$w_1\gamma_1 +w_2\gamma_2$, for $w_1,w_2\geq0$}
+Yes, it is regular.\\
+Consider $\gamma_{i,j}$ as the value of function $\gamma_i$ given schedule $j$ and $\gamma'_j=w_1\gamma_{1,j}+w_2\gamma_{1,j}$\\
+Consider two schedules, $S$ and $S'$, where $C_i=C_i'\ \forall i\in\{1,\cdots,n\}/j$ and $C_j< C_j'$\\
+For any arbitrary $j$, $\gamma_{1,S}\leq\gamma_{1,S'}$ and $\gamma_{2,S}\leq\gamma_{2,S'}$  because $\gamma_1$ and $\gamma_2$ are regular.\\
+Therefore, for all $w_1, w_2\geq0$, $\gamma_S'\leq\gamma_{S'}'$\\
+Hence, $w_1\gamma_1+ w_2\gamma_2$ is regular for $w_1,w_2\geq0$
+
+\subsection{$\gamma_1/\gamma_2$}
+No, it is not regular.\\
+Consider $\gamma_{i,j}$ as the value of function $\gamma_i$ given schedule $j$ and $\gamma'_j=\gamma_{1,j}/\gamma_{1,j}$\\ 
+Consider a case where $\gamma_{1,j}$ is a constant and $\gamma_{2,j}$ is a increasing function with respect to schedule $j$.\\
+As $gamma_{2,j}$ increases, $\gamma'_j$ decreases.\\
+Therefore, $\gamma_{1,j}/\gamma_{1,j}$ is decreasing and non-regular.
+Consider the case with the following values: \begin{itemize}
+\item $\gamma_{1,S}=1$
+\item $\gamma_{2,S'}=1$ - constant
+\item $\gamma_{1,S'}=1$
+\item $\gamma_{2,S'}=2$ - increasing
+\end{itemize}
+The resulting $\gamma'$ value would decrease from $1$ to $0.5$
+
+
+\end{document}
