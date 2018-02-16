@@ -1,0 +1,6 @@
+model pset2.mod;
+option solver cplex;
+data pset2.dat;
+solve;
+display wT;
+display C;
