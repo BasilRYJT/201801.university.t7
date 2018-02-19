@@ -80,16 +80,17 @@ $\rho(C_{31},C_{321})=1\frac{7}{9}$\\
 both subchains share the same $\rho$ value and, therefore, are interchangeable.\\
 \vspace{1pt}\\
 $\begin{aligned}\text{The list of possible optimal sequences are: }& 6\rightarrow1\rightarrow2\rightarrow3\rightarrow7\rightarrow4\rightarrow5\\& 6\rightarrow1\rightarrow2\rightarrow3\rightarrow4\rightarrow5\rightarrow7\\& 6\rightarrow3\rightarrow1\rightarrow2\rightarrow7\rightarrow4\rightarrow5\\& 6\rightarrow3\rightarrow1\rightarrow2\rightarrow4\rightarrow5\rightarrow7\end{aligned}$
-
+\pagebreak
 \section{Question 2}
-\textbf{Consider the problem $1|r_j,prmp|\sum C_j$, show that the preemptive Shortest Remaining Processing Time(SRPT) first rule is Optimal.}\\
+\textbf{Consider the problem $1|r_j,prmp|\sum C_j$, show that the preemptive}\\
+\textbf{Shortest Remaining Processing Time(SRPT) first rule is Optimal.}\\
 \vspace{1pt}\\
 \textbf{SRPT}: At any point in time, schedule the job with the shortest remaining time preempting when jobs with shorter processing times are released.\\
 \vspace{1pt}\\
 \textbf{Inverse statement:} All optimal schedules do not follow the SRPT rule.\\
 Assume inverse statement is true.\\
 \vspace{1pt}\\
-Given any schedule from the set of optimal schedules, consider any job $i$ and job $j$, such that:\\
+Given any schedule from the set of optimal schedules, consider any job $i$ and job $j$, such that:
 $$
 \begin{aligned}
 p_i(t)&>p_j(t)\\
@@ -132,28 +133,83 @@ As the set of optimal schedules is finite, the inverse statement must therefore 
 \pagebreak
 
 \section{Question 3}
-\textbf{Consider the problem $1|chains|\sum w_j(1-e^{-rC_j})$. Describe the algorithm that solves this problem and prove that it results in an optimal sequence.}\\
-
+\textbf{Consider the problem $1|chains|\sum w_j(1-e^{-rC_j})$. Describe the algorithm that solves this problem and prove that it results in an optimal sequence.}
+$$
+\begin{aligned}
+\textbf{Let  }\rho(1,\cdots,k)=\max_{l=1,\cdots,k}\frac{\sum_{j=1}^lw_j}{\sum_{j=1}^l(1-e^{-rC_j})}
+\end{aligned}
+$$
+\begin{enumerate}[label=\textbf{Step \arabic{*}:}]
+\item Evaluate $\rho(C_1,C_2,\cdots,C_n)$ where $\{C_1,C_2,\cdots,C_n\}$ is the set of all chains.
+\item For the chain that corresponds to the $\rho$ value, examine the longest sub-chain that has the same $\rho$ value.
+\item Append the sub-chain to the optimal sequence and return the remaining sub-chain to the set.
+\item Repeat \textbf{Step 1-3} until no more chains remain.
+\end{enumerate}
+\pagebreak
 \section{Question 4}
 \textbf{Formulate the $1||\sum_jU_j$ scheduling problem where $U_j$ is equal to 1 if job $j$ is tardy. As an integer problem in the following three cases}
 \begin{enumerate}[label=(\alph{*})]
-\item \textbf{Completion time decision variables and disjunctive constraints}\\
+\item \textbf{Completion time decision variables and disjunctive constraints}
 $$
-\begin{array}{ccc}
-\text{minimize}&\sum_{j=1}^nz_j&\\
-\text{subject to}&C_j+p_k\leq C_k+MX_{jk}&\forall j,k\textbf{ where }j<k\\
-&C_j+p_k\leq C_k+M(1-X_{jk})&\forall j,k\textbf{ where }j<k\\
-&&\\
+\begin{array}{crll}
+\textbf{minimize}&\sum_{j=1}^nZ_j\\
+\textbf{subject to}&C_j+p_k&\leq C_k+MX_{jk}&\forall j,k\\
+&C_k+p_j&\leq C_j+M(1-X_{jk})&\forall j,k\\
+&C_j-d_j&\leq MZ_j&\forall j\\
+&C_j&\geq0&\forall j\\
+&X_{jk}&\in\{0,1\}&\forall j,k\\
+&Z_j&\in\{0,1\}&\forall j\\
 \end{array}
 $$
-\item \textbf{Time-indexed decision variables}\\
-
-\item \textbf{Sequence-position decision variables}\\
-
+$$
+\begin{array}{lrl}
+\textbf{where}&X_{jk}=&\left\{\begin{array}{ll}1&\text{When }j\rightarrow k\\0&\text{Otherwise}\end{array}\right.\\
+&Z_{j}=&\left\{\begin{array}{ll}1&\text{When job }j\text{ is tardy.}\\0&\text{Otherwise}
+\end{array}\right.
+\end{array}
+$$
+\item \textbf{Time-indexed decision variables}
+$$
+\begin{array}{crll}
+\textbf{minimize}&\sum_{j=1}^{n}\sum_{t=1}^TZ_{jt}\\
+\textbf{subject to}&\sum_{t=0}^TX_{jt}&=1&\forall j\\
+&\sum_{j=1}^n\sum_{k=\max(0,t+1-p_j)}^tX_{jk}&\leq1&\forall j,t\\
+&\sum_{t=0}^TX_{jt}(t-1+p_j-d_j)&\leq MZ_{jt}&\forall j,t\\
+&X_{jt}&\in\{0,1\}&\forall j,t\\
+&Z_{jt}&\in\{0,1\}&\forall j,t
+\end{array}
+$$
+$$
+\begin{array}{lrl}
+\textbf{where}&X_{jt}=&\left\{\begin{array}{ll}1&\text{When job }j\text{ starts at time }t\\0&\text{Otherwise}\end{array}\right.\\
+&Z_{j}=&\left\{\begin{array}{ll}1&\text{When job }j\text{ is tardy.}\\0&\text{Otherwise}
+\end{array}\right.
+\end{array}
+$$
+\item \textbf{Sequence-position decision variables}
+$$
+\begin{array}{crll}
+\textbf{minimize}&\sum_{k=1}^nZ_k\\
+\textbf{subject to}&\sum_{j=1}^nX_{jk}&=1&\forall k\\
+&\sum_{k=1}^nX_{jk}&=1&\forall j\\
+&C_{k-1}^*+\sum_{j=1}^np_jX_{jk}&\leq C_k^*&\forall k\\
+&C_k^*-\sum_{j=1}^nd_jX_{jk}&\leq MZ_k&\forall k\\
+&C_k^*&\geq0&\forall k\\
+&X_{jk}&\in\{0,1\}&\forall j,k\\
+&Z_k&\in\{0,1\}&\forall k
+\end{array}
+$$
+$$
+\begin{array}{lrl}
+\textbf{where}&C_k^*:&\text{ Completion time of job at sequence position }k\\&X_{jk}=&\left\{\begin{array}{ll}1&\text{When job }j\text{ is assigned to position }k\\0&\text{Otherwise}\end{array}\right.\\
+&Z_{j}=&\left\{\begin{array}{ll}1&\text{When job }j\text{ is tardy.}\\0&\text{Otherwise}
+\end{array}\right.
+\end{array}
+$$
 \end{enumerate}
 
 \section{Question 5}
-\textbf{Solve the $1|r_j|\sum_jw_jT_j$ scheduling problem with time-indexed variables in AMPL for the dataset provided.}\\
+\textbf{Solve the $1|r_j|\sum_jw_jT_j$ scheduling problem with time-indexed variables in AMPL for the dataset provided.}
 \begin{lstlisting}[language=AMPL]
 CPLEX 12.8.0.0: optimal integer solution within mipgap or absmipgap; objective 139
 4270685 MIP simplex iterations
@@ -178,7 +234,7 @@ C [*] := # Completion time values
 14  22
 15   1
 \end{lstlisting}
-
+\pagebreak
 \begin{appendix}
 \section{Data file}
 \lstinputlisting[language=AMPL]{./pset2.dat}
