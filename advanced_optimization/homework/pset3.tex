@@ -36,15 +36,117 @@
 \maketitle
 
 \section{Question 1}
-
+\textbf{system description: }$1|prec|h_{\max}$
+\begin{center}
+\begin{tabular}{| l | c | c | c | c | c | c | c |}
+\hline
+jobs & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+\hline
+$p_j$ & 4 & 8 & 12 & 7 & 6 & 9 & 9 \\
+$h_j(C_j)$ & $3C_1$ & 77 & $C_3^2$ & $1.5C_4$ & $70+\sqrt{C_5}$ & $1.6C_6$ & $1.4C_7$ \\
+\hline
+\end{tabular}
+\end{center}
+$$
+\begin{aligned}
+1\rightarrow 7&\rightarrow6\\
+5&\rightarrow7\\
+5&\rightarrow4
+\end{aligned}
+$$
+Set $J=\emptyset,\ J^c=\{1,2,\cdots,7\},\ J'=\{2,3,4,6\}$
+$$
+h_{j*}\left(\sum_{k\in J^c}p_k\right)=\min_{j\in J'}\left(h_j\left(\sum_{k\in J^c}p_k\right)\right)
+$$
+\vspace{1pt}\\
+$\sum_{k\in J^c}p_k=55$\\
+\vspace{1pt}\\
+$\begin{aligned}h_2\left(\sum_{k\in J^c}p_k\right)&=77\end{aligned}$\\
+$\begin{aligned}h_3\left(\sum_{k\in J^c}p_k\right)&=(55)^2\\&=3025\end{aligned}$\\
+$\begin{aligned}h_4\left(\sum_{k\in J^c}p_k\right)&=1.5\times55\\&=82.5\end{aligned}$\\
+$\begin{aligned}h_6\left(\sum_{k\in J^c}p_k\right)&=1.6\times55\\&=88\end{aligned}$\\
+\vspace{1pt}\\
+$\min_{j\in J'}\left(h_j\left(\sum_{k\in J^c}p_k\right)\right)=77$\\
+\vspace{1pt}\\
+$J=\{2\},\ J^c=\{1,3,4,5,6,7\},\ J'=\{3,4,6\}$\\
+\vspace{1pt}
+$\sum_{k\in J^c}p_k=47$\\
+\vspace{1pt}\\
+$\begin{aligned}h_3\left(\sum_{k\in J^c}p_k\right)&=(47)^2\\&=2209\end{aligned}$\\
+$\begin{aligned}h_4\left(\sum_{k\in J^c}p_k\right)&=1.5\times47\\&=70.5\end{aligned}$\\
+$\begin{aligned}h_6\left(\sum_{k\in J^c}p_k\right)&=1.6\times47\\&=75.2\end{aligned}$\\
+\vspace{1pt}\\
+$\min_{j\in J'}\left(h_j\left(\sum_{k\in J^c}p_k\right)\right)=70.5$\\
+\vspace{1pt}\\
+$J=\{2,4\},\ J^c=\{1,3,5,6,7\},\ J'=\{3,6\}$\\
+\vspace{1pt}
+$\sum_{k\in J^c}p_k=40$\\
+\vspace{1pt}\\
+$\begin{aligned}h_3\left(\sum_{k\in J^c}p_k\right)&=(40)^2\\&=1600\end{aligned}$\\
+$\begin{aligned}h_6\left(\sum_{k\in J^c}p_k\right)&=1.6\times40\\&=64\end{aligned}$\\
+\vspace{1pt}\\
+$\min_{j\in J'}\left(h_j\left(\sum_{k\in J^c}p_k\right)\right)=64$\\
+\vspace{1pt}\\
+$J=\{2,4,6\},\ J^c=\{1,3,5,7\},\ J'=\{3,7\}$\\
+\vspace{1pt}
+$\sum_{k\in J^c}p_k=31$\\
+\vspace{1pt}\\
+$\begin{aligned}h_3\left(\sum_{k\in J^c}p_k\right)&=(31)^2\\&=961\end{aligned}$\\
+$\begin{aligned}h_7\left(\sum_{k\in J^c}p_k\right)&=1.4\times31\\&=43.4\end{aligned}$\\
+\vspace{1pt}\\
+$\min_{j\in J'}\left(h_j\left(\sum_{k\in J^c}p_k\right)\right)=43.4$\\
+\vspace{1pt}\\
+$J=\{2,4,6,7\},\ J^c=\{1,3,5\},\ J'=\{1,3,5\}$\\
+\vspace{1pt}
+$\sum_{k\in J^c}p_k=22$\\
+\vspace{1pt}\\
+$\begin{aligned}h_1\left(\sum_{k\in J^c}p_k\right)&=3\times22\\&=66\end{aligned}$\\
+$\begin{aligned}h_3\left(\sum_{k\in J^c}p_k\right)&=(22)^2\\&=484\end{aligned}$\\
+$\begin{aligned}h_5\left(\sum_{k\in J^c}p_k\right)&=70+\sqrt{22}\\&=74.69\end{aligned}$\\
+\vspace{1pt}\\
+$\min_{j\in J'}\left(h_j\left(\sum_{k\in J^c}p_k\right)\right)=66$\\
+\vspace{1pt}\\
+$J=\{2,4,6,7,1\},\ J^c=\{3,5\},\ J'=\{3,5\}$\\
+\vspace{1pt}
+$\sum_{k\in J^c}p_k=18$\\
+\vspace{1pt}\\
+$\begin{aligned}h_3\left(\sum_{k\in J^c}p_k\right)&=(18)^2\\&=324\end{aligned}$\\
+$\begin{aligned}h_5\left(\sum_{k\in J^c}p_k\right)&=70+\sqrt{18}\\&=74.24\end{aligned}$\\
+\vspace{1pt}\\
+$\min_{j\in J'}\left(h_j\left(\sum_{k\in J^c}p_k\right)\right)=74.24$\\
+\vspace{1pt}\\
+$J=\{2,4,6,7,1,5,3\},\ J^c=\emptyset,\ J'=\emptyset$
 \section{Question 2}
-
+\textbf{system description: }$1||\sum T_j$
+\begin{center}
+\begin{tabular}{| l | c | c | c | c | c | c | c | c |}
+\hline
+jobs & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+\hline
+$p_j$ & 6 & 18 & 12 & 10 & 10 & 11 & 5 & 7 \\
+$d_j$ & 8 & 42 & 44 & 24 & 26 & 26 & 70 & 75 \\
+\hline
+\end{tabular}
+\end{center}
 \section{Question 3}
-
+\textbf{Consider the problem $1|prec| \max(h_1(S_1),\cdots , h_n(S_n))$, where $S_j$ denotes the starting time of job $j$. The cost function $h_j$ , $j = 1,\cdots,n$ is decreasing. Unforced idleness of the machine is not allowed.Describe a dynamic programming type algorithm for this problem similar to the one in Section 3.2. Why does one have to use here forward dynamic
+programming instead of backward dynamic programming?}\\
+placeholder
 \section{Question 4}
 
 \section{Question 5}
-
+\begin{enumerate}[label=(\alph{*})]
+\item
+\item 
+\item 
+\end{enumerate}
 \section{Question 6}
-
+\begin{enumerate}[label=(\alph{*})]
+\item 
+\item 
+\item 
+\item 
+\item 
+\item 
+\end{enumerate}
 \end{document}
