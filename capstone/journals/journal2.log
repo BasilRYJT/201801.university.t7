@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2018.2.14)  26 FEB 2018 00:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2018.2.14)  26 FEB 2018 04:47
 entering extended mode
-**./journal1.tex
-(journal1.tex
+**./journal2.tex
+(journal2.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
@@ -130,8 +130,8 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen114
 \Gin@req@width=\dimen115
 )
-(journal1.aux)
-\openout1 = `journal1.aux'.
+(journal2.aux)
+\openout1 = `journal2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
@@ -203,44 +203,116 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 29.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 17.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (5.50058pt too wide) in paragraph at lines 48--49
-[]\OT1/cmr/m/n/10 Research on the en-vi-ron-men-tal im-pact of Steel-case via v
-ar-i-ous self-published
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/cmr/m/n/10 i-fi-ca-tion and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--61
-
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+\OT1/cmr/m/n/10 dis-tri-bu-tion
  []
 
-[2] [3] [4] (journal1.aux) ) 
+
+Underfull \hbox (badness 5578) in paragraph at lines 69--70
+[]\OT1/cmr/m/n/10 Packaging test re-quire-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
+[]\OT1/cmr/m/n/10 requires pack-ag-ing in-
+ []
+
+
+Underfull \hbox (badness 7486) in paragraph at lines 87--87
+[]\OT1/cmr/m/n/10 Container uti-
+ []
+
+
+Underfull \hbox (badness 6625) in paragraph at lines 89--90
+[]\OT1/cmr/m/n/10 load-space ef-fi-ciency of
+ []
+
+
+Underfull \hbox (badness 2351) in paragraph at lines 95--95
+[]\OT1/cmr/m/n/10 Shipments (in-
+ []
+
+
+Underfull \hbox (badness 4316) in paragraph at lines 98--99
+\OT1/cmr/m/n/10 case Malaysia has not
+ []
+
+
+Underfull \hbox (badness 6016) in paragraph at lines 98--99
+\OT1/cmr/m/n/10 much con-trol over in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--101
+[]\OT1/cmr/m/n/10 Shipments
+ []
+
+
+Underfull \hbox (badness 1231) in paragraph at lines 108--109
+[]\OT1/cmr/m/n/10 1 year of data (in-suf-fi-
+ []
+
+
+Overfull \hbox (35.99474pt too wide) in paragraph at lines 64--112
+ [] 
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 118--118
+[]\OT1/cmr/m/n/10 Mechanism
+ []
+
+
+Underfull \hbox (badness 1087) in paragraph at lines 135--136
+[]\OT1/cmr/m/n/10 container uti-liza-tion per
+ []
+
+
+Overfull \hbox (35.99474pt too wide) in paragraph at lines 114--142
+ [] 
+ []
+
+[4] <./assets/201802260436.PNG, id=21, 740.16525pt x 392.667pt>
+File: ./assets/201802260436.PNG Graphic file (type png)
+
+<use ./assets/201802260436.PNG>
+Package pdftex.def Info: ./assets/201802260436.PNG used on input line 145.
+(pdftex.def)             Requested size: 345.0pt x 183.02565pt.
+ [5 <./assets/201802260436.PNG>] [6]
+(journal2.aux) ) 
 Here is how much of TeX's memory you used:
- 2406 strings out of 493323
- 33158 string characters out of 3139069
- 99445 words of memory out of 3000000
- 5929 multiletter control sequences out of 15000+200000
- 9408 words of font info for 34 fonts, out of 3000000 for 9000
+ 2416 strings out of 493323
+ 33305 string characters out of 3139069
+ 105453 words of memory out of 3000000
+ 5935 multiletter control sequences out of 15000+200000
+ 9901 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,6n,25p,469b,240s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on journal1.pdf (4 pages, 92252 bytes).
+ 39i,9n,25p,521b,304s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmb
+x10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmti10.pfb>
+Output written on journal2.pdf (6 pages, 226251 bytes).
 PDF statistics:
- 39 PDF objects out of 1000 (max. 8388607)
+ 52 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

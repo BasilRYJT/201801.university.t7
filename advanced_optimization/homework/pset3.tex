@@ -54,6 +54,7 @@ $$
 5&\rightarrow4
 \end{aligned}
 $$
+\vspace{1pt}
 Set $J=\emptyset,\ J^c=\{1,2,\cdots,7\},\ J'=\{2,3,4,6\}$
 $$
 h_{j*}\left(\sum_{k\in J^c}p_k\right)=\min_{j\in J'}\left(h_j\left(\sum_{k\in J^c}p_k\right)\right)
@@ -128,24 +129,41 @@ $d_j$ & 8 & 42 & 44 & 24 & 26 & 26 & 70 & 75 \\
 \hline
 \end{tabular}
 \end{center}
+\textbf{Lemma 3.4.1.} If $p_j\leq p_k$ and $d_j\leq d_k$, then there exists an optimal sequence in which job $j$ is scheduled before job $k$.\\
+$1\rightarrow2,3,4,5,6,8\ \ (7)$\\
+$2\rightarrow\ \ (3,7,8)$\\
+$3\rightarrow\ \ (2,7,8)$
+$4\rightarrow2,3,5,6\ \ (7,8)$\\
+$5\rightarrow2,3,6\ \ (7,8)$\\
+$6\rightarrow2,3\ \ (7,8)$\\
+$7\rightarrow8\ \ (1,2,3,4,5,6)$\\
+$8\rightarrow\ \ (2,3,4,5,6)$\\
+\vspace{1pt}\\
+$V(\emptyset,t)=0$\\
+$V(\{j\},t)=\max(0,t+p_j-d_j)$\\
+$V(J(j,l,k),t)\\=\min_{\delta}\left(V(J(j,k'+\delta,k'),t)+\max(0,C_{k'}(\delta)-d_{k'})+V(J(k'+\delta+1,l,k'),C_{k'}(\delta))\right)$\\
+Where $p_{k'}=\max\left(p_{j'}|j'\in J(j,l,k1)\right)$\\
+$V(\{1,\cdots,8\},0)=$
+
 \section{Question 3}
 \textbf{Consider the problem $1|prec| \max(h_1(S_1),\cdots , h_n(S_n))$, where $S_j$ denotes the starting time of job $j$. The cost function $h_j$ , $j = 1,\cdots,n$ is decreasing. Unforced idleness of the machine is not allowed.Describe a dynamic programming type algorithm for this problem similar to the one in Section 3.2. Why does one have to use here forward dynamic
 programming instead of backward dynamic programming?}\\
 placeholder
 \section{Question 4}
-
+\textbf{system description: }$P_m||C_{\max}$\\
+$$
+C_{\max}(LS)\leq\left(2-\frac{1}{m}\right)C_{\max}^*
+$$
+\textbf{Find an example of an ordering of jobs such that the inequality holds with equality.}\\
+Given $m$ identical machines in parallel.\\
+Consider $m-1$ job with arbitrarily long processing time, such that $p_i=C_{\max}^*\forall i$\\
+Consider single jobs $j$ and $k$ with processing times $\frac{m-1}{m}C_{\max}^*$ and $\frac{1}{m}C_{\max}^*$ respectively.\\
+Therefore, the trivial optimal makespan is $C_{\max}^*$\\
+Now consider a list such that job $j$ and $k$ are not processed by the same machine under the LS algorithm.\\
+The resulting makespan would be an equivalence of\\ $C_{\max}^*+\frac{m-1}{m}C_{\max}^*=\left(2-\frac{1}{m}\right)C_{\max}^*$.
 \section{Question 5}
 \begin{enumerate}[label=(\alph{*})]
 \item
-\item 
-\item 
-\end{enumerate}
-\section{Question 6}
-\begin{enumerate}[label=(\alph{*})]
-\item 
-\item 
-\item 
-\item 
 \item 
 \item 
 \end{enumerate}
