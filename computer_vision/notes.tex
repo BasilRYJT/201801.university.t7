@@ -1,0 +1,70 @@
+\documentclass[a4paper, fleqn]{article}
+
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Notes \\ Computer Vision}
+\author{Basil R. Yap}
+\date{2018 January}
+\maketitle
+
+\section{Week 1}
+
+Gaussian Filter: $G(x,y)=\frac{1}{2\pi\sigma^2}e^{-\frac{x^2+y^2}{2\sigma^2}}$
+
+Edge Detection:\begin{itemize}
+\item Prewitt Operator: [[1,1,1]]
+\item Sobel operator: [[1,2,1]]
+\end{itemize}
+
+\section{Week 2}
+
+histogram equalization: increase contrast
+\begin{enumerate}
+\item compute cdf at k (normalized)
+\item multiply by L-1 (L, number of levels; 256), then floor
+\item this is new intensity
+\end{enumerate}
+
+KNN Distances:
+\begin{enumerate}
+\item L2 Distance (Euclidean distance): $\sqrt{\sum(I_1-I_2)^2}$
+\item L1 Distance (Manhattan distance): $\sum|I_1-I_2|$
+\end{enumerate}
+L1 is diamond shaped, L2 is circular\\
+
+KNN computationally expensive and unable to differentiate position and intensity shift.
+
+\section{Week 3}
+
+for given image len x width:
+\begin{itemize}
+\item input x = D x 1 vector (flatten image)
+\item weight W = k x D array
+\item bias b = k x 1 vector
+\item score s = k x 1 vector
+\end{itemize}
+s = Wx + b\\
+
+s = Wx where W=[W,b], x=[x,1]\begin{itemize}
+\item x=(D+1) x 1 vector
+\item W=k x (D+1) array
+\item s=k x 1 vector
+\end{itemize}
+
+Softmax classifier\\
+probability of class m can be calculated with $softmax(f)=\frac{e^{f_m}}{\sum_{j=1}^Ke^{f_j}}$\\
+cross-entropy loss for ith training sample: $L_i=-\log\frac{e^{f_{yi}}}{\sum_{j=1}^Ke^{fi}}$
+
+assumption of cnn:
+\begin{itemize}
+\item locality of pixel dependencies
+\item stationary of image statistics
+\item translation invariance
+\item same filter for whole image
+\end{itemize}
+
+\end{document}
