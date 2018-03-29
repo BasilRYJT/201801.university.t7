@@ -1,0 +1,187 @@
+\documentclass[a4paper, fleqn]{article}
+
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Homework I \\ Advanced Topics in Stochastic Modelling}
+\author{Basil R. Yap}
+\date{2018 March 25}
+\maketitle
+
+\section{Question 1}
+
+Let $X_T$ be the fraction of time that it rains given $T$ days have elapsed.\\
+Where,
+$$\begin{aligned}
+X_T&=\frac{r_1+r_2+\cdots+r_n}{T}\\
+\sum_i^n r_i&+\sum_i^m d_i=T\\
+r_i&\text{ is the length of }i\text{th raining spell}\\
+d_i&\text{ is the length of }i\text{th dry spell}
+\end{aligned}$$\\
+The long-run fraction of time that it rain can be expressed by:
+$$
+\begin{aligned}
+\lim_{T\rightarrow\infty}X_T&=\lim_{T\rightarrow\infty}\frac{\sum_i^n r_i}{T}\\
+&=\frac{E[r_i]}{E[T_i]}\\
+&=\frac{E[r_i]}{E[r_i]+E[d_i]}\ \ \ \ \#\ r_i\perp d_i\\
+&=\frac{2}{2+7}\\
+&=\frac{2}{9}\\
+\text{where }T_i=r_i+d_i\text{ , the period}&\text{ of the }i\text{th renewal cycle of the system.}
+\end{aligned}
+$$
+\pagebreak
+\section{Question 2}
+
+\subsection{Part a}
+
+Let $X_T$ be the fraction of people who go to Hilton Hotel given $T$ hours have elapsed.\\
+Where,
+$$\begin{aligned}
+X_T&=\frac{y_1+y_2+\cdots+y_n}{P_T}\\
+\sum_{i=1}^n y_i&+\sum_{i=1}^m n_i=P_T\ \ \ \ \#\ y_i=7\ \forall i\\
+y_i\text{ is the number of people who }&\text{do go to Hilton Hotel during the }i\text{th renewal cycle}\\
+d_i\text{ is the number of people who }&\text{go elsewhere during the }i\text{th renewal cycle}\\
+\end{aligned}$$\\
+The long-run fraction of people who go to Hilton Hotel can be expressed by:
+$$
+\begin{aligned}
+\lim_{T\rightarrow\infty}X_T&=\lim_{T\rightarrow\infty}\frac{\sum_i^n y_i}{P_T}\\
+\text{as }T\rightarrow\infty\ &,\ P_T\rightarrow\infty\\
+&=\lim_{P_T\rightarrow\infty}\frac{\sum_i^n y_i}{P_T}\\
+&=\frac{E[y_i]}{E[T_i]}\\
+&=\frac{7}{7+\frac{36}{60}\cdot10}\ \ \ \ \#\ \text{proportionality property}\\
+&=\frac{7}{13}\\
+\text{where }T_i=y_i+n_i\text{ , the number of}&\text{ people in the }i\text{th renewal cycle.}
+\end{aligned}
+$$
+\pagebreak
+\subsection{Part b}
+
+Let $X_i$ be amount of time spent by the $i$th person to reach Hilton Hotel at each renewal cycle.\\
+Let $Y_i$ be the inter-arrival time of the $i$th person and $i-1$th person  \\
+Where,
+$$
+\begin{aligned}
+Y_i&\sim\text{Exp}(10)\ \ \ \ \forall i\ \ \ \ \#\ \text{independent increment property}\\\\
+X_i&=\frac{36}{60}+\sum_{j=i+1}^7Y_j\ \ \ \ \forall i \setminus\{7\}\\
+X_7&=\frac{36}{60}
+\end{aligned}
+$$
+The expected time spent by people going to Hilton Hotel can be expressed by:
+$$
+\begin{aligned}
+E[X]&= \sum_{i=1}^7\left(\frac{1}{7}\cdot\sum_{j=i+1}^7Y_j\right)\ \ \ \ \#\ \text{proportionality property}\\
+&=\frac{1}{7}E\left[\sum_{i=2}^7Y_i\right]+\frac{1}{7}E\left[\sum_{i=3}^7Y_i\right]+\frac{1}{7}E\left[\sum_{i=4}^7Y_i\right]\\&+\frac{1}{7}E\left[\sum_{i=5}^7Y_i\right]+\frac{1}{7}E\left[\sum_{i=6}^7Y_i\right]+\frac{1}{7}E\left[\sum_{i=7}^7Y_i\right]+\frac{1}{7}E[36]\\
+&=\frac{6}{7}E[Y_7]+\frac{5}{7}E[Y_6]+\frac{4}{7}E[Y_5]+\frac{3}{7}E[Y_4]+\frac{2}{7}E[Y_3]+\frac{1}{7}E[Y_2]\\
+&= \frac{36}{60}+\frac{6}{7}\cdot\frac{1}{10}+\frac{5}{7}\cdot\frac{1}{10}+\frac{4}{7}\cdot\frac{1}{10}+\frac{3}{7}\cdot\frac{1}{10}+\frac{2}{7}\cdot\frac{1}{10}+\frac{1}{7}\cdot\frac{1}{10}\\
+&=\frac{9}{10}\ \ (\textit{hours})
+\end{aligned}
+$$
+\pagebreak
+\section{Question 3}
+
+\subsection{Part a}
+
+Let $X_T$ be the fraction of shots thrown by any child given $T$ is the total number of shots thrown.\\
+Where,
+$$\begin{aligned}
+X_T&=\frac{a_1+a_2+\cdots+a_n}{T}\\
+\sum_{i=1}^n a_i&+\sum_{i=1}^m b_i+\sum_{i=1}^kc_i=T\\
+a_i&\sim Geo(p_1)\\
+b_i&\sim Geo(p_2)\\
+c_i&\sim Geo(p_3)\\
+a_i\text{ is the number of shots}&\text{ thrown by child a at the }i\text{th renewal cycle}\\
+b_i\ \&\ c_i\text{ are the number of shots}&\text{ not thrown by child a at the }i\text{th renewal cycle}
+\end{aligned}$$\\
+The long-run fraction of shots thrown by any child can be expressed by:
+$$
+\begin{aligned}
+\lim_{T\rightarrow\infty}X_T&=\lim_{T\rightarrow\infty}\frac{\sum_i^n a_i}{T}\\
+&=\frac{E[a_i]}{E[T_i]}\\
+&=\frac{E[a_i]}{E[a_i]+E[b_i]+E[c_i]}\ \ \ \ \#\ a_i\perp b_i\perp c_i\\
+&=\frac{\frac{1}{p_1}}{\frac{1}{p_1}+\frac{1}{p_2}+\frac{1}{p_3}}\\
+&=\frac{\frac{1}{p_1}}{\frac{p_2p_3+p_1p_3+p_1p_2}{p_1p_2p_3}}\\
+&=\frac{p_2p_3}{p_2p_3+p_1p_3+p_1p_2}\\
+\text{where }T_i=a_i+b_i+c_i\text{ , the period}&\text{ of the }i\text{th renewal cycle of the system.}
+\end{aligned}
+$$
+This solution can be applied to any of the three children by reassigning the values of $p_1,\ p_2\ \&\ p_3$
+\pagebreak
+\subsection{Part b}
+$p_1=\frac{2}{3}\ ,\ p_2=\frac{3}{4}\ ,\ p_3=\frac{4}{5}$
+\begin{enumerate}[label=\textbf{For Child \Alph*}]
+\item $$
+\begin{aligned}
+\lim_{T\rightarrow\infty}X_T&=\lim_{T\rightarrow\infty}\frac{\sum_i^n a_i}{T}\\
+&=\frac{p_2p_3}{p_2p_3+p_1p_3+p_2p_3}\\
+&=\frac{\frac{12}{20}}{\frac{12}{20}+\frac{8}{15}+\frac{6}{12}}\\
+&=\frac{18}{49}
+\end{aligned}
+$$
+\item $$
+\begin{aligned}
+\lim_{T\rightarrow\infty}X_T&=\lim_{T\rightarrow\infty}\frac{\sum_i^n b_i}{T}\\
+&=\frac{p_1p_3}{p_2p_3+p_1p_3+p_2p_3}\\
+&=\frac{\frac{8}{15}}{\frac{12}{20}+\frac{8}{15}+\frac{6}{12}}\\
+&=\frac{16}{49}
+\end{aligned}
+$$
+\item $$
+\begin{aligned}
+\lim_{T\rightarrow\infty}X_T&=\lim_{T\rightarrow\infty}\frac{\sum_i^n c_i}{T}\\
+&=\frac{p_1p_2}{p_2p_3+p_1p_3+p_2p_3}\\
+&=\frac{\frac{6}{12}}{\frac{12}{20}+\frac{8}{15}+\frac{6}{12}}\\
+&=\frac{15}{49}
+\end{aligned}
+$$
+\end{enumerate}
+\pagebreak
+\section{Question 4}
+Let $X_T$ be the fraction of fully repaired machines given $T$ number of machines.\\
+Where,
+$$\begin{aligned}
+X_T&=\frac{r_1+r_2+\cdots+r_T}{T}\\
+\sum_{i=1}^T r_i&+\sum_{i=1}^T b_i=T\\
+\end{aligned}$$
+$$
+r_i=\left\{\begin{array}{ll}
+1&i\text{th machine is fully repaired}\\0& \text{otherwise}
+\end{array}\right.
+$$
+Let $Y$ be the time to complete repairs on any given machine\\
+Let $Z$ be the time since the start of repair for mistake to occur.
+$$
+\begin{aligned}
+Y&\sim\text{Exp}(\mu)\\
+Z&\sim\text{Exp}(\frac{1}{\lambda})\\
+Z&\sim\text{Exp}(\lambda^{-1})\\
+\Pr(Y<Z)=\frac{\mu}{\mu+\lambda^{-1}}\ \ \ \ &\#\ \text{difference of two exp. distributions}
+\end{aligned}
+$$
+$$
+r_i=\left\{\begin{array}{ll}
+1&Y<Z\\0&Y>Z
+\end{array}\right.
+$$
+$$
+E[r_i]=\frac{\mu}{\mu+\lambda^{-1}}
+$$
+$$
+b_i=\left\{\begin{array}{ll}
+1&i\text{th machine is broken}\\0& \text{otherwise}
+\end{array}\right.
+$$
+\\
+The long-run fraction of fully repaired machines can be expressed by:
+$$
+\begin{aligned}
+\lim_{T\rightarrow\infty}X_T&=\lim_{T\rightarrow\infty}\frac{\sum_i^T r_i}{T}\\
+&=\frac{E[r_i]}{E[T_i]}\\
+&=\frac{E[r_i]}{1}\ \ \ \ \#\ \text{machine will always be checked}\\
+&=\frac{\mu}{\mu+\lambda^{-1}}
+\end{aligned}
+$$
+\end{document}
